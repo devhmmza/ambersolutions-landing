@@ -102,17 +102,6 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      {/* Brand Trust Strip */}
-      <div className="absolute bottom-0 left-0 right-0 py-12 border-y border-gray-800 overflow-hidden">
-        <div className="flex space-x-12 animate-scroll">
-          {[...brands, ...brands].map((brand, index) => (
-            <span key={index} className="text-gray-500 text-sm font-medium whitespace-nowrap">
-              {brand}
-            </span>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

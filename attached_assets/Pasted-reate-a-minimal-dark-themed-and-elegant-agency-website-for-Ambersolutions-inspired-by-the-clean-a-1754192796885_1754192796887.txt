@@ -1,0 +1,139 @@
+reate a minimal, dark-themed, and elegant agency website for Ambersolutions, inspired by the clean and premium vibe of Amoor Demo. The design should prioritize simplicity, whitespace, smooth animations, and a premium modern feel.
+
+🖤 Color Palette
+Primary Background: Pure Black (#000000)
+
+Text: White (#FFFFFF)
+
+Accent Color: Neon Green (#00FF7F) (used sparingly for highlights, buttons, and hover effects)
+
+✨ Design & Layout Requirements
+1️⃣ Loader Animation (Pre-Homepage)
+Display a minimal loader animation:
+
+A glowing neon green circle that softly pulses/rotates before the page loads.
+
+Smooth fade transition into the homepage.
+
+2️⃣ Homepage Layout
+Navbar:
+
+Minimal top-right hamburger menu (hidden until clicked, expands with a smooth overlay).
+
+When opened: menu items → Home | Services | Projects | Pricing | Testimonials | Contact.
+
+Top Section:
+
+Top-left: Display agency name Ambersolutionspk in a modern sans-serif font (white).
+
+Top-right: Minimal hamburger menu icon.
+
+Hero Section (Middle-Left):
+
+Large bold 3-word statement stacked vertically:
+
+Copy
+Edit
+Idea.
+Execution.
+Trust.
+Subtle fade-in from left animation.
+
+Key Highlights (Right-Side or Below Statement):
+
+"✅ 100% Client Trust"
+
+"🚀 Delivered 115+ Projects"
+
+Both should have animated counters (number counting effect).
+
+Bottom of Hero Section:
+
+Scrolling horizontal strip with brand logos (Google, OpenAI, Amazon, Microsoft, etc.)
+
+Smooth infinite scroll animation.
+
+3️⃣ Services Section (Scrolling Down)
+Title: "Services We Offer"
+
+Grid layout with professional minimal icons (not emojis).
+
+Use smooth fade-in/up animations for each card.
+
+Include all services with a short description:
+
+diff
+Copy
+Edit
+- Landing Pages  
+- AI Tools (Mini SaaS)  
+- Portfolio & Resume Sites  
+- Dashboards  
+- Backend Services (APIs, Auth, Logic)  
+- Fix + Improve Websites  
+- Voice/Audio AI Tools  
+- AI-Powered Automations  
+- Mini Browser Games  
+- Custom GPT Bot  
+- Websites  
+- Branding Kit
+4️⃣ Projects Section
+Title: "Our Recent Work"
+
+Display 3 landing pages, 2 websites, 2 portfolios, 1 branding kit.
+
+Use a carousel/slider with smooth swipe animations.
+
+5️⃣ Pricing Section
+Title: "Pricing Plans"
+
+Use a clean minimal table layout (dark theme with green highlights).
+
+Include the provided pricing table with hover effects (e.g., row highlights).
+
+Keep it simple, well-spaced, and aligned with the dark theme.
+
+6️⃣ Quote + Testimonials Section
+Before testimonials, display a powerful quote:
+
+"We turn ideas into impactful digital experiences."
+
+Below, showcase 3 client testimonials with:
+
+Minimal cards, soft shadows, smooth fade-in animation.
+
+7️⃣ Contact & Location
+At the bottom:
+
+Display "Based in Shanghai, China".
+
+Minimal contact form (Name, Email, Message) with green button hover effects.
+
+Social icons (LinkedIn, GitHub, Twitter) minimal white, turning green on hover.
+
+8️⃣ Footer
+Black footer with:
+
+Copyright text.
+
+Links to Terms & Privacy.
+
+Subtle hover animations.
+
+🖥 Technical Notes
+Use Next.js + Tailwind CSS for performance and responsiveness.
+
+All animations should be smooth (Framer Motion recommended).
+
+Keep white space generous.
+
+Maintain maximum simplicity while ensuring a premium, modern, and elegant look.
+
+✅ Deliverables
+Fully responsive website.
+
+Dark, elegant, minimal design.
+
+Smooth animations as described.
+
+Perfect balance between simplicity and professionalism.

@@ -20,7 +20,6 @@ export default function ContactSection() {
     }
   });
 
-  // ✅ Formspree submission handler
   const onSubmit = async (data) => {
     try {
       const response = await fetch("https://formspree.io/f/meozlrqw", {

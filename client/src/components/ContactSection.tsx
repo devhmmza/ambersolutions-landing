@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Mail, Clock, Linkedin, Github, Twitter } from "lucide-react";
+import { MapPin, Mail, Clock, Linkedin, Github, Twitter, Instagram } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -117,6 +117,13 @@ export default function ContactSection() {
                 className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
               >
                 <Twitter size={20} />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
+              >
+                <Instagram size={20} />
               </Button>
             </div>
           </motion.div>

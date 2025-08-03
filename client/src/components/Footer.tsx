@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logoImage from "@assets/main logo_1754199846650.jpg";
 
 const footerLinks = {
   support: [
@@ -37,7 +38,13 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="text-2xl font-bold text-electric-blue mb-4">Ambersolutionspk</div>
+            <div className="flex items-center mb-4">
+              <img 
+                src={logoImage} 
+                alt="Amber Solutions" 
+                className="h-6 w-auto"
+              />
+            </div>
             <p className="text-gray-400 text-sm">
               Turning ideas into impactful digital experiences through innovative solutions and trusted expertise.
             </p>

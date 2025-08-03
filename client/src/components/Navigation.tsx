@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logoImage from "@assets/main logo_1754199846650.jpg";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,8 +28,12 @@ export default function Navigation() {
     <>
       <nav className="fixed top-0 w-full z-40 bg-black/90 backdrop-blur-sm border-b border-gray-800">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-electric-blue">
-            Ambersolutionspk
+          <div className="flex items-center">
+            <img 
+              src={logoImage} 
+              alt="Amber Solutions" 
+              className="h-8 w-auto"
+            />
           </div>
           
           <button

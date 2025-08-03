@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const footerLinks = {
   support: [
     { label: "Help Center", href: "#contact" },
-    { label: "Community", href: "https://www.instagram.com/ambersolutions.pk/" },
+    { label: "Community", href: "https://www.instagram.com/ambersolutionspk?igsh=d3FyYTVtcno3MG9k" },
     { label: "Contact Us", href: "#contact" },
     { label: "Status", href: "/status" }
   ],

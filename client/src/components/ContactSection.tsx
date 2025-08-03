@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Mail, Clock, Linkedin, Github, Twitter, Instagram } from "lucide-react";
+import { MapPin, Mail, Clock, Twitter, Instagram, Facebook } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -101,20 +101,15 @@ export default function ContactSection() {
                 variant="ghost"
                 size="icon"
                 className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
+                onClick={() => window.open('https://www.instagram.com/ambersolutionspk?igsh=d3FyYTVtcno3MG9k', '_blank')}
               >
-                <Linkedin size={20} />
+                <Instagram size={20} />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
                 className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
-              >
-                <Github size={20} />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
+                onClick={() => window.open('https://x.com/AmbersoPK?t=47I_SErXy7JNg1dqlnu7Xw&s=09', '_blank')}
               >
                 <Twitter size={20} />
               </Button>
@@ -122,8 +117,9 @@ export default function ContactSection() {
                 variant="ghost"
                 size="icon"
                 className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
+                onClick={() => window.open('https://www.facebook.com/share/1CjXy5TQKj/', '_blank')}
               >
-                <Instagram size={20} />
+                <Facebook size={20} />
               </Button>
             </div>
           </motion.div>

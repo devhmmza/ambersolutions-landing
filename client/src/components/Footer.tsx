@@ -94,7 +94,7 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <div className="text-sm text-gray-400 mb-4 md:mb-0">
-            © 2024 Ambersolutionspk. All rights reserved.
+            © 2025 Ambersolutionspk. All rights reserved.
           </div>
           <div className="flex space-x-6 text-sm text-gray-400">
             <button className="hover:text-electric-blue transition-colors">

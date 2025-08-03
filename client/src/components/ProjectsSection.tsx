@@ -74,7 +74,7 @@ export default function ProjectsSection() {
   const visibleProjects = projects.slice(currentIndex, currentIndex + itemsPerView);
 
   return (
-    <section className="py-20">
+    <section id="projects" className="py-20">
       <div className="container mx-auto px-6">
         <motion.div 
           className="text-center mb-16"

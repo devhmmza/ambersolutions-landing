@@ -31,8 +31,8 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
 }
 
 export default function HeroSection() {
-  const scrollToProviders = () => {
-    const element = document.querySelector("#providers");
+  const scrollToContact = () => {
+    const element = document.querySelector("#contact");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -93,10 +93,10 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <Button 
-                onClick={scrollToProviders}
+                onClick={scrollToContact}
                 className="bg-electric-blue text-black px-8 py-4 text-lg font-semibold hover:bg-white transition-colors transform hover:scale-105"
               >
-                Book Appointment Now
+                Get Started Today
               </Button>
             </motion.div>
           </motion.div>

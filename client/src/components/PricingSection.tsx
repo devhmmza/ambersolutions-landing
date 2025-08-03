@@ -3,48 +3,73 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
-const pricingTiers = [
+const services = [
   {
-    name: "Starter",
-    price: "$499",
-    description: "Perfect for small projects and personal websites",
-    features: [
-      "Landing Page Design",
-      "Responsive Layout",
-      "Basic SEO Setup",
-      "Contact Form",
-      "2 Revisions",
-      "7-day Delivery"
-    ]
+    name: "Landing Pages",
+    price: "$1000–$1500",
+    delivery: "2–4 days",
+    description: "Fully responsive, SEO-friendly Next.js + Tailwind landing pages"
   },
   {
-    name: "Professional",
-    price: "$1,299",
-    description: "Ideal for businesses and growing companies",
-    features: [
-      "Multi-page Website",
-      "Custom Design",
-      "CMS Integration",
-      "SEO Optimization",
-      "Analytics Setup",
-      "5 Revisions",
-      "14-day Delivery"
-    ],
+    name: "AI Tools (Mini SaaS)",
+    price: "$999–$2,499",
+    delivery: "3–5 days",
+    description: "Tools like resume AI, PDF Q&A, summarizers, transcribers",
     popular: true
   },
   {
-    name: "Enterprise",
-    price: "$2,999",
-    description: "Complete solution for large organizations",
-    features: [
-      "Full Web Application",
-      "Custom Development",
-      "Database Integration",
-      "API Development",
-      "Security Implementation",
-      "Unlimited Revisions",
-      "30-day Delivery"
-    ]
+    name: "Portfolio & Resume Sites",
+    price: "$700–$1,199",
+    delivery: "2–4 days",
+    description: "Clean, modern personal sites for devs/designers"
+  },
+  {
+    name: "Dashboards",
+    price: "$1100–$1,999",
+    delivery: "4–7 days",
+    description: "Admin panels or user dashboards (Next.js/Supabase)"
+  },
+  {
+    name: "Backend Services",
+    price: "$599–$1,499",
+    delivery: "3–6 days",
+    description: "Custom logic/API + DB (FastAPI/Supabase)"
+  },
+  {
+    name: "Fix + Improve Website",
+    price: "$299–$499",
+    delivery: "1–2 days",
+    description: "Repair & improve broken/unfinished code"
+  },
+  {
+    name: "Voice/Audio AI Tools",
+    price: "$999–$1,999",
+    delivery: "3–5 days",
+    description: "Whisper-based speech-to-text tools, with UX"
+  },
+  {
+    name: "AI-Powered Automations",
+    price: "$999–$2,499",
+    delivery: "3–6 days",
+    description: "Web scraping, notifications, GPT-based workflows"
+  },
+  {
+    name: "Mini Browser Games",
+    price: "$799–$1,499",
+    delivery: "3–5 days",
+    description: "Fun JS/React-based games (Snake, Quiz, Flappy Bird clone)"
+  },
+  {
+    name: "Custom GPT Bot",
+    price: "$3,000–$5,000",
+    delivery: "3–5 days",
+    description: "Custom GPT chatbot with prompt engineering"
+  },
+  {
+    name: "Websites",
+    price: "$2,199–$3,499",
+    delivery: "4–7 days",
+    description: "Full-fledged websites (static to dynamic)"
   }
 ];
 
@@ -65,19 +90,19 @@ export default function PricingSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {pricingTiers.map((tier, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {services.map((service, index) => (
             <motion.div
-              key={tier.name}
+              key={service.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.05 }}
               viewport={{ once: true }}
             >
-              <Card className={`bg-black border-gray-700 hover:border-electric-blue transition-all duration-300 relative ${
-                tier.popular ? 'border-electric-blue scale-105' : ''
+              <Card className={`bg-black border-gray-700 hover:border-electric-blue transition-all duration-300 relative h-full ${
+                service.popular ? 'border-electric-blue' : ''
               }`}>
-                {tier.popular && (
+                {service.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-electric-blue text-black px-4 py-1 rounded-full text-sm font-semibold">
                       Most Popular
@@ -85,31 +110,23 @@ export default function PricingSection() {
                   </div>
                 )}
                 
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl font-bold mb-2">{tier.name}</CardTitle>
-                  <div className="text-4xl font-bold text-electric-blue mb-2">{tier.price}</div>
-                  <p className="text-gray-400 text-sm">{tier.description}</p>
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-lg font-bold mb-2">{service.name}</CardTitle>
+                  <div className="text-2xl font-bold text-electric-blue mb-1">{service.price}</div>
+                  <div className="text-sm text-gray-400 mb-3">Delivery: {service.delivery}</div>
+                  <p className="text-gray-300 text-sm leading-relaxed">{service.description}</p>
                 </CardHeader>
                 
-                <CardContent>
-                  <ul className="space-y-3 mb-8">
-                    {tier.features.map((feature, i) => (
-                      <li key={i} className="flex items-center space-x-3">
-                        <Check size={16} className="text-electric-blue flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
+                <CardContent className="pt-0">
                   <Button 
                     className={`w-full ${
-                      tier.popular 
+                      service.popular 
                         ? 'bg-electric-blue text-black hover:bg-white' 
                         : 'border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-black'
                     } transition-colors`}
-                    variant={tier.popular ? "default" : "outline"}
+                    variant={service.popular ? "default" : "outline"}
                   >
-                    Get Started
+                    Get Quote
                   </Button>
                 </CardContent>
               </Card>

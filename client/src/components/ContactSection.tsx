@@ -81,7 +81,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="font-semibold">Email</div>
-                  <div className="text-gray-400">hello@ambersolutionspk.com</div>
+                  <div className="text-gray-400">ambersolutionspk.info@gmail.com</div>
                 </div>
               </div>
               

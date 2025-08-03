@@ -118,16 +118,7 @@ export default function PricingSection() {
                 </CardHeader>
                 
                 <CardContent className="pt-0">
-                  <Button 
-                    className={`w-full ${
-                      service.popular 
-                        ? 'bg-electric-blue text-black hover:bg-white' 
-                        : 'border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-black'
-                    } transition-colors`}
-                    variant={service.popular ? "default" : "outline"}
-                  >
-                    Get Quote
-                  </Button>
+                
                 </CardContent>
               </Card>
             </motion.div>

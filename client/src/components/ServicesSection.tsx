@@ -109,9 +109,7 @@ export default function ServicesSection() {
               </div>
               <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
               <p className="text-gray-400 mb-4">{service.description}</p>
-              <button className="text-electric-blue hover:text-white transition-colors text-sm font-medium">
-                Learn More →
-              </button>
+              
             </motion.div>
           ))}
         </div>

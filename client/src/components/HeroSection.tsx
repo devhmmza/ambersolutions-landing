@@ -41,16 +41,16 @@ export default function HeroSection() {
   return (
     <section id="home" className="min-h-screen flex items-center pt-20">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div 
             className="space-y-8"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <div className="space-y-4">
               <motion.h1 
-                className="text-5xl md:text-7xl font-bold leading-tight"
+                className="text-6xl md:text-8xl font-bold leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -60,7 +60,7 @@ export default function HeroSection() {
                 <div className="text-electric-blue">Trust.</div>
               </motion.h1>
               <motion.p 
-                className="text-xl text-gray-300 leading-relaxed"
+                className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -70,7 +70,7 @@ export default function HeroSection() {
             </div>
             
             <motion.div 
-              className="flex space-x-8"
+              className="flex justify-center space-x-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -99,20 +99,6 @@ export default function HeroSection() {
                 Book Appointment Now
               </Button>
             </motion.div>
-          </motion.div>
-          
-          <motion.div 
-            className="relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
-              alt="Professional consultation" 
-              className="rounded-2xl shadow-2xl w-full h-auto" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-electric-blue/20 to-transparent rounded-2xl"></div>
           </motion.div>
         </div>
       </div>

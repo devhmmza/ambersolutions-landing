@@ -97,10 +97,16 @@ export default function Footer() {
             © 2025 Ambersolutionspk. All rights reserved.
           </div>
           <div className="flex space-x-6 text-sm text-gray-400">
-            <button className="hover:text-electric-blue transition-colors">
+            <button 
+              onClick={() => handleLinkClick('/terms-of-service')}
+              className="hover:text-electric-blue transition-colors"
+            >
               Terms of Service
             </button>
-            <button className="hover:text-electric-blue transition-colors">
+            <button 
+              onClick={() => handleLinkClick('/privacy-policy')}
+              className="hover:text-electric-blue transition-colors"
+            >
               Privacy Policy
             </button>
             <button className="hover:text-electric-blue transition-colors">

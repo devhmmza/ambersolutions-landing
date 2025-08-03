@@ -77,12 +77,12 @@ export default function HeroSection() {
             >
               <div className="text-center">
                 <div className="text-2xl font-bold text-electric-blue">
-                  ✅ <AnimatedCounter target={100} />% Client Trust
+                  <AnimatedCounter target={100} />% Client Trust
                 </div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-electric-blue">
-                  🚀 Delivered <AnimatedCounter target={115} />+ Projects
+                  Delivered <AnimatedCounter target={115} />+ Projects
                 </div>
               </div>
             </motion.div>

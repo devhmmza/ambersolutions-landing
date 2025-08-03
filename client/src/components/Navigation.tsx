@@ -9,6 +9,7 @@ export default function Navigation() {
     { label: "Home", href: "#home" },
     { label: "Services", href: "#services" },
     { label: "Projects", href: "#projects" },
+    { label: "Case Studies", href: "#case-studies" },
     { label: "Pricing", href: "#pricing" },
     { label: "Testimonials", href: "#testimonials" },
     { label: "Contact", href: "#contact" }

@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import CaseStudiesSection from "@/components/CaseStudiesSection";
 import PricingSection from "@/components/PricingSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
@@ -30,6 +31,7 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <ProjectsSection />
+      <CaseStudiesSection />
       <PricingSection />
       <TestimonialsSection />
       <ContactSection />

@@ -1,17 +1,11 @@
 import { motion } from "framer-motion";
 
 const footerLinks = {
-  platform: [
-    { label: "For Customers", href: "#" },
-    { label: "For Providers", href: "#" },
-    { label: "Mobile App", href: "#" },
-    { label: "API Access", href: "#" }
-  ],
   support: [
-    { label: "Help Center", href: "#" },
-    { label: "Community", href: "#" },
+    { label: "Help Center", href: "#contact" },
+    { label: "Community", href: "https://www.instagram.com/ambersolutions.pk/" },
     { label: "Contact Us", href: "#contact" },
-    { label: "Status", href: "#" }
+    { label: "Status", href: "/status" }
   ],
   company: [
     { label: "About", href: "#" },
@@ -22,19 +16,23 @@ const footerLinks = {
 };
 
 export default function Footer() {
-  const scrollToSection = (href: string) => {
+  const handleLinkClick = (href: string) => {
     if (href.startsWith("#")) {
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
+    } else if (href.startsWith("http")) {
+      window.open(href, '_blank');
+    } else {
+      window.location.href = href;
     }
   };
 
   return (
     <footer className="bg-black border-t border-gray-800 py-12">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -53,12 +51,12 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-semibold mb-4">Platform</h4>
+            <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              {footerLinks.platform.map((link) => (
+              {footerLinks.support.map((link) => (
                 <li key={link.label}>
                   <button
-                    onClick={() => scrollToSection(link.href)}
+                    onClick={() => handleLinkClick(link.href)}
                     className="hover:text-electric-blue transition-colors"
                   >
                     {link.label}
@@ -74,33 +72,12 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="font-semibold mb-4">Support</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              {footerLinks.support.map((link) => (
-                <li key={link.label}>
-                  <button
-                    onClick={() => scrollToSection(link.href)}
-                    className="hover:text-electric-blue transition-colors"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
                   <button
-                    onClick={() => scrollToSection(link.href)}
+                    onClick={() => handleLinkClick(link.href)}
                     className="hover:text-electric-blue transition-colors"
                   >
                     {link.label}

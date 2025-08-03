@@ -6,15 +6,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Mail, Clock, Twitter, Instagram, Facebook } from "lucide-react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { insertContactSchema, type InsertContact } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
 
 export default function ContactSection() {
   const { toast } = useToast();
 
-  const form = useForm<InsertContact>({
-    resolver: zodResolver(insertContactSchema),
+  const form = useForm({
     defaultValues: {
       name: "",
       email: "",
@@ -24,7 +21,7 @@ export default function ContactSection() {
   });
 
   // ✅ Formspree submission handler
-  const onSubmit = async (data: InsertContact) => {
+  const onSubmit = async (data) => {
     try {
       const response = await fetch("https://formspree.io/f/meozlrqw", {
         method: "POST",

@@ -7,14 +7,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MapPin, Mail, Clock, Twitter, Instagram, Facebook } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 export default function ContactSection() {
   const { toast } = useToast();
-  const queryClient = useQueryClient();
 
   const form = useForm<InsertContact>({
     resolver: zodResolver(insertContactSchema),
@@ -26,33 +23,46 @@ export default function ContactSection() {
     }
   });
 
-  const contactMutation = useMutation({
-    mutationFn: (data: InsertContact) => apiRequest("POST", "/api/contacts", data),
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours.",
+  // ✅ Formspree submission handler
+  const onSubmit = async (data: InsertContact) => {
+    try {
+      const response = await fetch("https://formspree.io/f/meozlrqw", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data),
       });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/contacts"] });
-    },
-    onError: () => {
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "We'll get back to you within 24 hours.",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Failed to send message",
+          description: "Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
       toast({
-        title: "Failed to send message",
-        description: "Please try again later.",
+        title: "Error sending message",
+        description: "Network error, please try again later.",
         variant: "destructive",
       });
     }
-  });
-
-  const onSubmit = (data: InsertContact) => {
-    contactMutation.mutate(data);
   };
 
   return (
     <section id="contact" className="py-20 bg-gray-900">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
+          
+          {/* Left side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -63,7 +73,7 @@ export default function ContactSection() {
             <p className="text-xl text-gray-300 mb-8">
               Have questions or want to discuss your next project? We'd love to hear from you.
             </p>
-            
+
             <div className="space-y-6 mb-8">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-electric-blue rounded-lg flex items-center justify-center text-black">
@@ -74,7 +84,6 @@ export default function ContactSection() {
                   <div className="text-gray-400">Based in Shanghai, China</div>
                 </div>
               </div>
-              
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-electric-blue rounded-lg flex items-center justify-center text-black">
                   <Mail size={20} />
@@ -84,7 +93,6 @@ export default function ContactSection() {
                   <div className="text-gray-400">ambersolutionspk.info@gmail.com</div>
                 </div>
               </div>
-              
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-electric-blue rounded-lg flex items-center justify-center text-black">
                   <Clock size={20} />
@@ -96,34 +104,24 @@ export default function ContactSection() {
               </div>
             </div>
 
+            {/* Social links */}
             <div className="flex space-x-4">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
-                onClick={() => window.open('https://www.instagram.com/ambersolutionspk?igsh=d3FyYTVtcno3MG9k', '_blank')}
-              >
+              <Button variant="ghost" size="icon" className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
+                onClick={() => window.open('https://www.instagram.com/ambersolutionspk?igsh=d3FyYTVtcno3MG9k', '_blank')}>
                 <Instagram size={20} />
               </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
-                onClick={() => window.open('https://x.com/AmbersoPK?t=47I_SErXy7JNg1dqlnu7Xw&s=09', '_blank')}
-              >
+              <Button variant="ghost" size="icon" className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
+                onClick={() => window.open('https://x.com/AmbersoPK?t=47I_SErXy7JNg1dqlnu7Xw&s=09', '_blank')}>
                 <Twitter size={20} />
               </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
-                onClick={() => window.open('https://www.facebook.com/share/1CjXy5TQKj/', '_blank')}
-              >
+              <Button variant="ghost" size="icon" className="bg-gray-700 hover:bg-electric-blue hover:text-black transition-colors"
+                onClick={() => window.open('https://www.facebook.com/share/1CjXy5TQKj/', '_blank')}>
                 <Facebook size={20} />
               </Button>
             </div>
           </motion.div>
 
+          {/* Right side - Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -133,31 +131,22 @@ export default function ContactSection() {
             <Card className="bg-black border-gray-700">
               <CardContent className="p-8">
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  
+                  {/* Name */}
                   <div>
                     <label className="block text-sm font-medium mb-2">Name</label>
-                    <Input
-                      {...form.register("name")}
-                      placeholder="Your full name"
-                      className="bg-gray-900 border-gray-700 focus:border-electric-blue"
-                    />
-                    {form.formState.errors.name && (
-                      <p className="text-red-400 text-sm mt-1">{form.formState.errors.name.message}</p>
-                    )}
+                    <Input {...form.register("name")} placeholder="Your full name" className="bg-gray-900 border-gray-700 focus:border-electric-blue" />
+                    {form.formState.errors.name && <p className="text-red-400 text-sm mt-1">{form.formState.errors.name.message}</p>}
                   </div>
                   
+                  {/* Email */}
                   <div>
                     <label className="block text-sm font-medium mb-2">Email</label>
-                    <Input
-                      {...form.register("email")}
-                      type="email"
-                      placeholder="your@email.com"
-                      className="bg-gray-900 border-gray-700 focus:border-electric-blue"
-                    />
-                    {form.formState.errors.email && (
-                      <p className="text-red-400 text-sm mt-1">{form.formState.errors.email.message}</p>
-                    )}
+                    <Input {...form.register("email")} type="email" placeholder="your@email.com" className="bg-gray-900 border-gray-700 focus:border-electric-blue" />
+                    {form.formState.errors.email && <p className="text-red-400 text-sm mt-1">{form.formState.errors.email.message}</p>}
                   </div>
                   
+                  {/* Subject */}
                   <div>
                     <label className="block text-sm font-medium mb-2">Subject</label>
                     <Select onValueChange={(value) => form.setValue("subject", value)}>
@@ -171,35 +160,25 @@ export default function ContactSection() {
                         <SelectItem value="partnership">Partnership</SelectItem>
                       </SelectContent>
                     </Select>
-                    {form.formState.errors.subject && (
-                      <p className="text-red-400 text-sm mt-1">{form.formState.errors.subject.message}</p>
-                    )}
+                    {form.formState.errors.subject && <p className="text-red-400 text-sm mt-1">{form.formState.errors.subject.message}</p>}
                   </div>
                   
+                  {/* Message */}
                   <div>
                     <label className="block text-sm font-medium mb-2">Message</label>
-                    <Textarea
-                      {...form.register("message")}
-                      rows={4}
-                      placeholder="Tell us about your project..."
-                      className="bg-gray-900 border-gray-700 focus:border-electric-blue resize-none"
-                    />
-                    {form.formState.errors.message && (
-                      <p className="text-red-400 text-sm mt-1">{form.formState.errors.message.message}</p>
-                    )}
+                    <Textarea {...form.register("message")} rows={4} placeholder="Tell us about your project..." className="bg-gray-900 border-gray-700 focus:border-electric-blue resize-none" />
+                    {form.formState.errors.message && <p className="text-red-400 text-sm mt-1">{form.formState.errors.message.message}</p>}
                   </div>
                   
-                  <Button 
-                    type="submit"
-                    disabled={contactMutation.isPending}
-                    className="w-full bg-electric-blue text-black hover:bg-white transition-colors transform hover:scale-105"
-                  >
-                    {contactMutation.isPending ? "Sending..." : "Send Message"}
+                  {/* Submit */}
+                  <Button type="submit" className="w-full bg-electric-blue text-black hover:bg-white transition-colors transform hover:scale-105">
+                    Send Message
                   </Button>
                 </form>
               </CardContent>
             </Card>
           </motion.div>
+
         </div>
       </div>
     </section>

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logoImage from "@assets/main logo_1754199846650.jpg";
+import logoImage from "../attached_assets/main_logo.png";
+
+
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +34,7 @@ export default function Navigation() {
             <img 
               src={logoImage} 
               alt="Amber Solutions" 
-              className="h-8 w-auto"
+              className="h-20 w-auto"
             />
           </div>
           

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logoImage from "@assets/main logo_1754199846650.jpg";
+import logoImage from "../attached_assets/main_logo.png";
 
 const footerLinks = {
   support: [
@@ -42,7 +42,7 @@ export default function Footer() {
               <img 
                 src={logoImage} 
                 alt="Amber Solutions" 
-                className="h-6 w-auto"
+                className="h-16 w-auto"
               />
             </div>
             <p className="text-gray-400 text-sm">

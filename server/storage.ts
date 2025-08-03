@@ -93,25 +93,28 @@ export class MemStorage implements IStorage {
     // Seed testimonials
     const seedTestimonials: InsertTestimonial[] = [
       {
-        clientName: "Sarah M.",
-        clientRole: "Healthcare Patient",
-        content: "Ambersolutions made it so easy to find and book with Dr. Johnson. No more waiting on hold or playing phone tag. The whole process was seamless!",
-        rating: 5,
-        imageUrl: "https://images.unsplash.com/photo-1494790108755-2616b612b47c?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80"
+        clientName: "Emily Zhang",
+        clientRole: "Product Manager, ByteLabs",
+        content: "Working with AmbersolutionsPK was a game-changer for our startup. They transformed our idea into a sleek landing page that boosted our conversion rate by 40%. Their team truly understands design, execution, and user experience.",
+        rating: 5
       },
       {
-        clientName: "James L.",
-        clientRole: "Business Professional",
-        content: "As a busy professional, I love that I can book my trainer Mike at any time. The platform is intuitive and the providers are all verified and reliable.",
-        rating: 5,
-        imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80"
+        clientName: "David Lee",
+        clientRole: "Founder, Streamify AI",
+        content: "We needed a custom AI tool, and AmbersolutionsPK delivered beyond expectations. From concept to deployment, everything was handled with precision and creativity. Their expertise in AI and web technologies is unmatched.",
+        rating: 5
       },
       {
-        clientName: "Maria T.",
-        clientRole: "Beauty Client",
-        content: "The review system helped me choose the perfect hair stylist. Emma exceeded my expectations, and booking my next appointment was effortless!",
-        rating: 5,
-        imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80"
+        clientName: "Sarah Johnson",
+        clientRole: "UX Designer, CloudArc",
+        content: "AmbersolutionsPK built our portfolio site, and the results were stunning. Clean design, smooth animations, and delivered on time. They are the perfect partner for anyone who values minimalism with impact.",
+        rating: 5
+      },
+      {
+        clientName: "Alex Carter",
+        clientRole: "CTO, NovaEdge Solutions",
+        content: "Our company required a dashboard solution with custom backend logic. AmbersolutionsPK handled it flawlessly. The communication was seamless, and they exceeded every expectation. Highly recommend their services.",
+        rating: 5
       }
     ];
 

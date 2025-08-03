@@ -50,7 +50,7 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {testimonials?.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -67,16 +67,9 @@ export default function TestimonialsSection() {
                     ))}
                   </div>
                   <p className="text-gray-300 mb-6 leading-relaxed">"{testimonial.content}"</p>
-                  <div className="flex items-center">
-                    <img 
-                      src={testimonial.imageUrl || "https://images.unsplash.com/photo-1494790108755-2616b612b47c?ixlib=rb-4.0.3&auto=format&fit=crop&w=80&h=80"} 
-                      alt={testimonial.clientName} 
-                      className="w-12 h-12 rounded-full mr-4" 
-                    />
-                    <div>
-                      <div className="font-semibold">{testimonial.clientName}</div>
-                      <div className="text-sm text-gray-400">{testimonial.clientRole}</div>
-                    </div>
+                  <div>
+                    <div className="font-semibold">{testimonial.clientName}</div>
+                    <div className="text-sm text-gray-400">{testimonial.clientRole}</div>
                   </div>
                 </CardContent>
               </Card>
